@@ -1,0 +1,37 @@
+﻿id,vagas_id,data_aplicacao,etapa,estrategias,observacoes,status
+1,1,2025-11-12,dinâmica de grupo,currículo ajustado IA,"primeira dinâmica de grupo, explorando SQL, percebi que precisava desenvolver mais habilidades",Reprovado
+2,2,2026-04-05,entrevista virtual,"currículo ajustado IA, teste com IA",Gostei do processo seletivo deles onde davam três chances para gravar o vídeo e a formação que fizeram durante o processo de preparação,Em andamento
+3,3,2026-04-05,entrevista virtual,"currículo ajustado IA, teste com IA",Gostei do processo seletivo deles onde davam três chances para gravar o vídeo e a formação que fizeram durante o processo de preparação,Em andamento
+4,4,2026-03-12,entrevista do gestor,"currículo ajustado IA, roteiro de entrevista, leitura RI, teste com IA","Gostei deles utilizarem o kolab para apresentação da dinâmica de grupo, e o incentivo ao mudar de carreira",Reprovado
+5,5,2026-03-06,entrevista online,"currículo ajustado IA, teste com IA",acredito que ficar perdido em relação a vaga pode ter atrapalhado,Reprovado
+6,6,2026-04-20,entrevista online,"currículo ajustado IA, teste com IA",para essas empresas menos conhecidas parece que fico mais tranquilo e a gravaçao flui espontaneamente,Em andamento
+7,7,2026-04-22,entrevista online,"currículo ajustado IA, teste com IA","achei muito confuso o plano de negócios dessa empresa, acredito que estudar o ri ajudaria",Reprovado
+8,8,2026-05-12,testes(lógico/inglês),currículo ajustado IA,"nem sei o que houve parecia que iria para as próximas fases, porem nem passei na fase do site",Reprovado
+9,9,2025-10-25,Inscrição,currículo ajustado IA,nem sei o que houve demorou demais o processo ou deixe de fazer alguma fase,Reprovado
+10,10,2025-10-25,Inscrição,currículo ajustado IA,nem sei o que houve demorou demais o processo ou deixe de fazer alguma fase,Reprovado
+11,11,2025-10-25,Inscrição,currículo ajustado IA,nem sei o que houve demorou demais o processo ou deixe de fazer alguma fase,Reprovado
+12,12,2026-04-08,fit cultural,currículo ajustado IA,acho que meu currículo não destacou  o conhecimento em finanças,Reprovado
+13,13,2026-04-08,fit cultural,"currículo ajustado IA, teste com IA",acho que meu currículo não destacou  o conhecimento em finanças,Reprovado
+14,14,2026-05-12,fit cultural,"currículo ajustado IA, teste com IA",essa vaga parece que bate muito comigo de pensar estratégias de melhoria da vida das pessoas,Em andamento
+15,15,2026-04-23,testes(lógico/inglês),"currículo ajustado IA, teste com IA",dessa vez tive um desempenho bem grande na prova de ingles e vou refazer a de lógica,Em andamento
+16,16,2026-04-23,testes(lógico/inglês),"currículo ajustado IA, roteiro de entrevista, teste com IA",dessa vez tive um desempenho bem grande na prova de ingles e vou refazer a de lógica,Em andamento
+17,17,2026-04-23,testes(lógico/inglês),"currículo ajustado IA, roteiro de entrevista, teste com IA",dessa vez tive um desempenho bem grande na prova de ingles e vou refazer a de lógica,Em andamento
+18,18,2026-02-23,testes(lógico/inglês),"currículo ajustado IA, teste com IA",acredito que não ter na cidade em que resido possa ter interferido,Reprovado
+19,19,2026-02-23,testes(lógico/inglês),"currículo ajustado IA, teste com IA",não sei o motivo talvez por não ter nada que remeta a saúde no currículo,Reprovado
+20,20,2026-03-10,testes(lógico/inglês),"currículo ajustado IA, teste com IA",parece que pararam de usar o across,Em andamento
+21,21,2026-03-10,testes(lógico/inglês),"currículo ajustado IA, teste com IA",parece que pararam de usar o across,Em andamento
+22,22,2026-03-10,testes(lógico/inglês),"currículo ajustado IA, teste com IA","é uma empresa interessante do setor petroquímico, mas não sei se bate o match",Em andamento
+23,23,2025-10-22,Inscrição,"currículo ajustado IA, teste com IA","é uma empresa interessante, mas não sei o motivo de não ter dado match",Reprovado
+24,24,2026-03-19,Inscrição,"currículo ajustado IA, teste com IA","não tinha muito o que avaliar nesse processo deles, só teve um teste online",Reprovado
+25,25,2026-04-15,testes(lógico/inglês),"currículo ajustado IA, teste com IA",gostei da proposta da empresa agora esperando as próximas fases,Em andamento
+26,26,2026-04-15,testes(lógico/inglês),"currículo ajustado IA, teste com IA",gostei da proposta da empresa agora esperando as próximas fases,Em andamento
+27,27,2026-04-27,Inscrição,"currículo ajustado IA, teste com IA",gostei da proposta da empresa agora esperando as próximas fases,Em andamento
+28,28,2026-04-30,Inscrição,"currículo ajustado IA, teste com IA",gostei da proposta da empresa agora esperando as próximas fases,Em andamento
+29,29,2026-05-18,fit cultural,"currículo ajustado IA, teste com IA",acredito que case bastante com meu portifólio,Em andamento
+30,30,2026-05-22,inscrição,"currículo ajustado IA, roteiro de entrevista, teste com IA, evento de networking, portifólio ajuste GitHub",acredito que case bastante com meu portifólio,Em andamento
+31,23,2026-05-22,Inscrição,"currículo ajustado IA, roteiro de entrevista, teste com IA, evento de networking, portifólio ajuste GitHub",acredito que case bastante com meu portifólio,Em andamento
+32,24,2026-04-27,Inscrição,"currículo ajustado IA, roteiro de entrevista, teste com IA, evento de networking, portifólio ajuste GitHub",acredito que case bastante com meu portifólio,Em andamento
+33,25,2026-04-27,testes(lógico/inglês),"currículo ajustado IA, roteiro de entrevista, teste com IA, evento de networking","não entendi o motivo do não avanço, mas deve estar relacionado ao curriculo",Reprovado
+34,26,2026-05-26,Inscrição,"currículo ajustado IA, teste com IA",acho interessante o processo de energias renováveis,Em andamento
+35,27,2026-05-26,Inscrição,"currículo ajustado IA, teste com IA",é uma empresa interessante que tenho ações,Em andamento
+36,28,2026-05-26,Inscrição,"currículo ajustado IA, teste com IA",o porfólio parece bater ainda mais com os curso da DSA,Em andamento
