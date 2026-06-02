@@ -55,6 +55,23 @@ WHERE status = 'Reprovado'
 GROUP BY etapa
 ORDER BY quantidade_reprovacoes DESC;
 
+-- Taxa de Avanço
+SELECT
+    etapa,
+    COUNT(*) AS total,
+    (COUNT(*) * 100.0 / SUM(COUNT(*)) OVER()) AS taxa_avanço
+FROM aplicacoes
+GROUP BY etapa
+ORDER BY
+CASE
+    WHEN etapa = 'Inscrição' THEN 1
+    WHEN etapa = 'testes(lógico/inglês)' THEN 2
+    WHEN etapa = 'fit cultural' THEN 3
+    WHEN etapa = 'entrevista online' THEN 4
+    WHEN etapa = 'entrevista virtual' THEN 5
+    WHEN etapa = 'entrevista do gestor' THEN 6
+    WHEN etapa = 'final' THEN 7
+END;
 
 -- Empresas com mais aplicações
 SELECT
