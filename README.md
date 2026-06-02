@@ -84,22 +84,22 @@ Durante o desenvolvimento do projeto foram aplicados conhecimentos em:
 ## Metodologia
 Inicialmente considerei armazenar todas as informações em uma única tabela. Entretanto, percebi que isso geraria repetição excessiva de dados, especialmente na relação entre empresas, vagas e aplicações. 
 
-* 1º. Modelagem do banco
+* 1º. Modelagem do banco: 
 Nessa parte precisei analisar a relação que as tabelas iriam ter entre si, além de ter uma visão futura de como acessá-las. Colocando a primeira ideia de tabela única, pois repetiria muitas vezes a empresa em vagas diferentes e aplicações feitas, o que tornaria o banco de dados menos eficiente
 
-* 2º. Inserção e padronização
+* 2º. Inserção e padronização: 
 No processo de inserção de dados percebi que a escolha de fazer tudo no SQL demandaria um tempo maior do que utilizar planilhas, além de perceber a necessidade de padronizar dados, como as etapas que tinha nomes diferentes, mas eram a mesma atividade, como fit cultural, fator H entre outros.
 
-* 3º. Criação de views
+* 3º. Criação de views: 
 Essa foi uma ferramenta nova que ainda não tinha explorado, mas facilita muito na replicabilidade do programa, fornecendo as consultas que acredito ser mais relevantes na análise.
 
-* 4º. Consultas analíticas
+* 4º. Consultas analíticas: 
 Utilizei todos os conhecimentos adquiridos nos jogos SQL island, Murder Mystery, Noir, e o curso W3school, para fazer consultas, filtrar dados, buscando sempre responder as perguntas teses.
 
-* 5º. Exportação dos dados
+* 5º. Exportação dos dados: 
 Inicialmente busquei integrar diretamente o banco SQLite ao Power BI via ODBC. Entretanto, limitações na configuração do ambiente levaram à adoção de uma estratégia alternativa utilizando Python e Pandas para exportação automatizada dos dados.
 
-* 6º. Construção do dashboard
+* 6º. Construção do dashboard: 
 Na construção do dashboard utilizei os conhecimentos aprendidos no curso da DSA, valorizando as informações que foram mais importantes na análise da aplicações. 
 
 
