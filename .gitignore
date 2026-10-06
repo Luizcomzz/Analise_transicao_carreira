@@ -1,0 +1,25 @@
+﻿# ================================================================
+# .gitignore — Analise_transição_carreira
+# ================================================================
+
+# --- Banco de dados (dados pessoais de candidatura) ---
+*.db
+
+# --- CSVs exportados (gerados automaticamente pelo pipeline) ---
+data/
+
+# --- Ambientes virtuais Python ---
+venv/
+__pycache__/
+*.pyc
+
+# --- Variáveis de ambiente e credenciais ---
+.env
+
+# --- IDEs ---
+.vscode/
+.idea/
+
+# --- Sistema operacional ---
+.DS_Store
+Thumbs.db
