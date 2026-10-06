@@ -1,159 +1,189 @@
-# Análise de Transição de Carreira 
+﻿# Career Analytics Tracker — Análise de Transição de Carreira
 
-Projeto desenvolvido para analisar padrões de avanço em processos seletivos, identificar gargalos nas etapas de candidatura e compreender quais estratégias aumentam as chances de progressão.
-O sistema foi desenvolvido utilizando SQL, Python e Power BI para estruturar um pipeline analítico orientado por dados durante o processo de transição de carreira para a área de tecnologia e dados.
+![Python](https://img.shields.io/badge/Python-3.14-3776AB?style=flat&logo=python&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-3.0-150458?style=flat&logo=pandas&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-3-003B57?style=flat&logo=sqlite&logoColor=white)
+![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-F2C811?style=flat&logo=powerbi&logoColor=black)
+![Status](https://img.shields.io/badge/Status-Em%20operação-0075CA?style=flat)
 
-## Objetivo:
+> ⚡ **Sistema em operação** — dados reais de processos seletivos ativos, atualizados continuamente durante a transição de carreira.
 
-Criar um sistema capaz de: 
-* analisar evolução dos processos seletivos 
-* identificar gargalos por etapa 
-* Identificar padrões de aprovação e reprovação
-* Mapear habilidades técnicas mais exigidas pelas vagas
-* Gerar insights para orientar estudos e estratégias de aplicação
+---
 
+## 🎯 Problema de Negócio
 
-## Dashboard
+Candidatos em transição de carreira tomam decisões de candidatura com base em intuição — sem visibilidade sobre quais etapas concentram mais reprovações, quais estratégias realmente funcionam ou quais perfis de vaga têm maior aderência ao seu perfil.
+
+Este projeto cria um **sistema de rastreamento analítico** que registra, estrutura e analisa os próprios processos seletivos em tempo real, transformando dados de candidatura em inteligência estratégica para otimizar as próximas aplicações.
+
+> **Pergunta central:** O que aumenta minhas chances de avançar nos processos seletivos? Em qual etapa estou sendo barrado e por quê?
+
+---
+
+## 🔍 Principais Achados
+
+> Base atual: **36 aplicações · 28 empresas · 37 vagas monitoradas**
+
+| # | Achado | O que isso significa |
+|---|---|---|
+| 1 | **56% das reprovações ocorrem antes da 1ª entrevista** — Inscrição (5) + Testes (4) | Gargalo nos filtros ATS: o currículo não estava passando pela triagem automatizada antes de chegar a um humano |
+| 2 | **Currículo ajustado com IA isolado → 6 reprovações, 0 avanços** | Otimizar apenas o currículo não é suficiente para vencer os filtros iniciais |
+| 3 | **Combinação currículo + portfólio + networking → 3 em andamento, 0 reprovações** | Quanto mais estratégias combinadas, maior a taxa de avanço — evidência direta de que a stack de candidatura importa |
+
+---
+
+## ⭐ Diferenciais Técnicos deste Projeto
+
+| Diferencial | Por que importa |
+|---|---|
+| **Dados reais de processos seletivos ativos** | Não é simulação — são candidaturas reais com resultados rastreados em tempo real |
+| **Modelagem relacional com 3 tabelas** | Empresas → Vagas → Aplicações com chaves estrangeiras — simula modelagem de banco corporativo |
+| **Views SQL para análises recorrentes** | 4 views criadas para consultas padronizadas sem repetição de código |
+| **Uso de dados para otimizar a própria carreira** | Demonstra pensamento analítico aplicado a um problema real e pessoal |
+
+---
+
+## 💡 Impacto Gerado
+
+Com o sistema operacional, foi possível:
+
+- **Identificar o gargalo** nas etapas iniciais e ajustar o currículo para passar pelos filtros ATS
+- **Validar empiricamente** que mais estratégias combinadas resultam em maior taxa de avanço
+- **Mapear padrões** entre empresas, setores e tipos de vaga com melhor aderência ao perfil
+- **Orientar os próximos estudos** com base nas hard skills mais exigidas pelas vagas candidatadas
+
+---
+
+## 🗄️ Modelagem Relacional
+
+O banco foi estruturado em 3 tabelas relacionadas para eliminar redundância e permitir análises cruzadas:
+
+```
+empresas (id, nome, setor, valores)
+    │
+    └── vagas (id, empresas_id, vaga, hardskills)
+              │
+              └── aplicacoes (id, vagas_id, data_aplicacao, etapa, estrategias, observacoes, status)
+```
 
 <p align="center">
-  <img src="\dashboard\visual_aplicacoes.jpg" width="900">
+  <img src="dashboard/esquema_relacional.jpg" width="700">
 </p>
 
-* Quantas aplicações foram realizadas ao longo do tempo 
-* Em quais etapas ocorre maior concentração de reprovações 
-* Como evolui a taxa de avanço nos processos seletivos 
-* Quais estratégias parecem estar associadas ao avanço 
-* Quais empresas e vagas apresentam melhor aderência 
+---
 
-## Hipótese Analítica
-
-### Pergunta principal do projeto:
-
-O que aumenta minhas chances de avançar nos processos seletivos?
-
-### Subperguntas:
-
-* Em qual etapa ficou travado?
-* Quais estratégias funcionam melhor?
-* Existe padrão entre empresas e vagas?
-* Como evoluir meu pipeline de aplicações?
-
-## Principais Insights
-A análise inicial revelou alguns padrões importantes:
-
-* A maior parte das reprovações ocorre nas etapas iniciais dos processos seletivos, especialmente inscrição e testes.
-* Isso levantou a hipótese de baixa aderência entre currículo e sistemas ATS ou desalinhamento entre requisitos das vagas e perfil apresentado.
-* O projeto também mostrou a importância da padronização das etapas seletivas para permitir comparações consistentes, além de separar as hardskills ao invés de armazenar em texto corrido.
-
-## Estrutura do Banco Relacional
-
-### Explicação da modelagem.
-
-### Tabela empresas
-
-| id | nome | setor | valores |
-| -- | ---- | ----- | ------- |
-
-### Tabela vagas
-
-| id | empresas_id | vaga | hardskills |
-| -- | ----------- | ---- | ---------- |
-
-### Tabela aplicações
-
-| id | vagas_id | data_aplicacao | etapa | estrategias | observacoes | status |
-| -- | -------- | -------------- | ----- | ----------- | ----------- | ------ |
-
-
-Relacionamento entre tabelas
+## 📊 Dashboard
 
 <p align="center">
-  <img src="\dashboard\esquema_relacional.jpg" width="900">
+  <img src="dashboard/visual_aplicacoes.jpg" width="900">
 </p>
 
-## Competências técnicas aplicadas
-Durante o desenvolvimento do projeto foram aplicados conhecimentos em:
-* SQL / SQLite
-* Modelagem Relacional
-* Python
-* Pandas
-* Power BI
-* DAX
-* Engenharia e Tratamento de Dados
+- **Volume de aplicações ao longo do tempo:** pico em abril/2026 com 15 aplicações — sprint de candidatura
+- **Reprovações por etapa:** identifica onde o funil quebra — concentração em Inscrição e Testes
+- **Estratégias × resultado:** correlação entre combinação de estratégias e taxa de avanço
+- **Empresas e vagas com maior aderência:** orienta onde focar as próximas candidaturas
 
-## Metodologia
-Inicialmente considerei armazenar todas as informações em uma única tabela. Entretanto, percebi que isso geraria repetição excessiva de dados, especialmente na relação entre empresas, vagas e aplicações. 
+---
 
-* 1º. Modelagem do banco: 
-Nessa parte precisei analisar a relação que as tabelas iriam ter entre si, além de ter uma visão futura de como acessá-las. Colocando a primeira ideia de tabela única, pois repetiria muitas vezes a empresa em vagas diferentes e aplicações feitas, o que tornaria o banco de dados menos eficiente
+## 📂 Estrutura do Projeto
 
-* 2º. Inserção e padronização: 
-No processo de inserção de dados percebi que a escolha de fazer tudo no SQL demandaria um tempo maior do que utilizar planilhas, além de perceber a necessidade de padronizar dados, como as etapas que tinha nomes diferentes, mas eram a mesma atividade, como fit cultural, fator H entre outros.
+```
+Analise_transição_carreira/
+├── data/
+│   ├── aplicacoes.csv        # Exportado automaticamente pelo pipeline
+│   ├── vagas.csv
+│   └── empresas.csv
+├── database/
+│   └── carreira.db           # Banco SQLite com as 3 tabelas e 4 views
+├── dashboard/
+│   ├── visual_aplicacoes.jpg # Dashboard exportado do Power BI
+│   └── esquema_relacional.jpg
+├── Scripts/
+│   ├── exportar_dados.py     # Pipeline de exportação do banco para CSV
+│   └── consultas.sql         # Consultas analíticas organizadas por tema
+├── requirements.txt
+└── README.md
+```
 
-* 3º. Criação de views: 
-Essa foi uma ferramenta nova que ainda não tinha explorado, mas facilita muito na replicabilidade do programa, fornecendo as consultas que acredito ser mais relevantes na análise.
+---
 
-* 4º. Consultas analíticas: 
-Utilizei todos os conhecimentos adquiridos nos jogos SQL island, Murder Mystery, Noir, e o curso W3school, para fazer consultas, filtrar dados, buscando sempre responder as perguntas teses.
+## 🚀 Como Reproduzir
 
-* 5º. Exportação dos dados: 
-Inicialmente busquei integrar diretamente o banco SQLite ao Power BI via ODBC. Entretanto, limitações na configuração do ambiente levaram à adoção de uma estratégia alternativa utilizando Python e Pandas para exportação automatizada dos dados.
+```bash
+# 1. Clone o repositório
+git clone https://github.com/Luizcomzz/Analise_transicao_carreira.git
+cd Analise_transicao_carreira
 
-* 6º. Construção do dashboard: 
-Na construção do dashboard utilizei os conhecimentos aprendidos no curso da DSA, valorizando as informações que foram mais importantes na análise da aplicações. 
+# 2. Crie e ative o ambiente virtual
+python -m venv venv
+venv\Scripts\activate        # Windows
+# source venv/bin/activate   # Mac/Linux
 
+# 3. Instale as dependências
+pip install -r requirements.txt
 
-## Principais aprendizados
+# 4. Popule o banco com seus dados de candidatura via SQLite
+#    (use as tabelas empresas → vagas → aplicacoes)
 
-Durante o desenvolvimento, alguns aprendizados importantes surgiram:
-* A importância de modelar os dados pensando nas perguntas futuras que precisarão ser respondidas
-* Nem toda informação deve ser armazenada como texto corrido, especialmente quando há necessidade de agrupamento e análise
-* A padronização dos dados impacta diretamente a qualidade dos insights
-* Em alguns cenários, combinar planilhas e banco de dados pode ser mais eficiente do que centralizar tudo em SQL
+# 5. Exporte os dados para CSV (integração com Power BI)
+python Scripts/exportar_dados.py
+```
 
-## Evoluções Futuras
+---
+
+## 📈 KPIs Monitorados
+
+| Indicador | Resultado atual |
+|---|---|
+| Total de aplicações | 36 |
+| Empresas distintas | 28 |
+| Vagas monitoradas | 37 |
+| Processos em andamento | 21 (58%) |
+| Processos reprovados | 15 (42%) |
+| Principal gargalo | Inscrição — 5 reprovações |
+| Melhor combinação de estratégias | Currículo IA + Teste IA + Networking + Portfólio GitHub |
+
+---
+
+## 🔎 Consultas SQL — Organizadas por Tema
+
+| Arquivo | Conteúdo |
+|---|---|
+| `Scripts/consultas.sql` — Visão Geral | Total de aplicações, empresas, vagas e status |
+| `Scripts/consultas.sql` — Performance | Reprovações por etapa, taxa de avanço, empresas com mais aplicações |
+| `Scripts/consultas.sql` — Estratégias | Estratégias utilizadas × resultado obtido |
+| `Scripts/consultas.sql` — Mercado | Hard skills mais pedidas, empresas por setor |
+| `Scripts/consultas.sql` — Views | 4 views analíticas para consultas recorrentes |
+
+---
+
+## 🗺️ Evoluções Planejadas
+
 ### Curto prazo
-* Padronização das hard skills 
-* Estruturação das etapas em níveis ordenados 
-* Refinamento das estratégias de candidatura 
+- Padronizar hard skills em tabela separada (atualmente em texto corrido)
+- Estruturar etapas do processo em níveis ordenados para análise de funil
 
 ### Médio prazo
-* Automatização da entrada de dados 
-* Integração com planilhas externas 
-* Comparação entre tipos de vagas 
+- Automação da entrada de dados via formulário ou planilha integrada
+- Comparação entre tipos de vaga (analista, cientista, engenheiro de dados)
 
 ### Longo prazo
-* Sistema preditivo de aderência às vagas  
-* Recomendação de estratégias por empresa 
-* Automação parcial do pipeline de candidatura 
+- Sistema preditivo de aderência às vagas com base no histórico
+- Recomendação automática de estratégias por perfil de empresa
 
+---
 
-## Tecnologias utilizadas:
+## 🛠️ Tecnologias Utilizadas
 
+| Ferramenta | Finalidade |
+|---|---|
+| [Python 3.14](https://www.python.org/) | Pipeline de exportação dos dados |
+| [Pandas](https://pandas.pydata.org/) | Leitura e exportação das tabelas do banco |
+| [SQLite](https://sqlite.org/) | Banco relacional com modelagem de 3 tabelas e views |
+| [Power BI](https://www.microsoft.com/pt-br/power-platform/products/power-bi/desktop) | Dashboard de acompanhamento do funil de candidaturas |
 
-* [Python](https://www.python.org/): linguagem de programação
-* [Pandas](https://pandas.pydata.org/docs/): exportar dados para analise em Power BI
-* [SQLite](https://sqlite.org/): consultar banco de dados
-*[PowerBI](https://www.microsoft.com/pt-br/power-platform/products/power-bi/desktop): Apresentação de Dashboard com indicadores
- 
-## Como executar:
+---
 
+## 👤 Autor
 
-### **1. Instale `Python` na sua máquina, por meio [deste link](https://www.python.org/)**
-
-
-### **2. Faça um clone [desse repositório](https://github.com/Luizcomzz/Analise_transicao_carreira.git) na sua máquina:**
-
-
-* Crie uma pasta no seu computador para esse programa, recomendo colocar o nome **Analise_transicao_carreira**
-* Abra o `git bash` ou `terminal` dentro dessa pasta
-* Copie a [URL]https://github.com/Luizcomzz/Analise_transicao_carreira.git) do repositório
-* Digite `git clone <URL copiada>` e pressione `enter`
-
-
-### **3. Importe as bibliotecas necessárias pelo terminal, dentro dessa pasta criada:**
-
-
-* Pandas: `pip install pandas`
-* SQLite3: `import sqlite3 as sql`
-* Os: `pip install os-sys`
+Desenvolvido por **Luiz** · [LinkedIn](https://linkedin.com/in/seu-perfil) · [GitHub](https://github.com/Luizcomzz)

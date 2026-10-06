@@ -1,0 +1,14 @@
+﻿# ================================================================
+# requirements.txt — Analise_transição_carreira
+# ================================================================
+# Como usar:
+#   1. python -m venv venv
+#   2. venv\Scripts\activate   (Windows)
+#   3. pip install -r requirements.txt
+#
+# Biblioteca padrão usada (não precisa instalar):
+#   - sqlite3  → conexão e consultas ao banco relacional
+#   - os       → criação automática de diretórios
+# ================================================================
+
+pandas==3.0.3
