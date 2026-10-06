@@ -98,7 +98,7 @@ Analise_transição_carreira/
 ├── dashboard/
 │   ├── visual_aplicacoes.jpg # Dashboard exportado do Power BI
 │   └── esquema_relacional.jpg
-├── Scripts/
+├── scripts/
 │   ├── exportar_dados.py     # Pipeline de exportação do banco para CSV
 │   └── consultas.sql         # Consultas analíticas organizadas por tema
 ├── requirements.txt
@@ -116,7 +116,7 @@ cd Analise_transicao_carreira
 
 # 2. Crie e ative o ambiente virtual
 python -m venv venv
-venv\Scripts\activate        # Windows
+venv\scripts\activate        # Windows
 # source venv/bin/activate   # Mac/Linux
 
 # 3. Instale as dependências
@@ -126,7 +126,7 @@ pip install -r requirements.txt
 #    (use as tabelas empresas → vagas → aplicacoes)
 
 # 5. Exporte os dados para CSV (integração com Power BI)
-python Scripts/exportar_dados.py
+python scripts/exportar_dados.py
 ```
 
 ---
@@ -149,11 +149,11 @@ python Scripts/exportar_dados.py
 
 | Arquivo | Conteúdo |
 |---|---|
-| `Scripts/consultas.sql` — Visão Geral | Total de aplicações, empresas, vagas e status |
-| `Scripts/consultas.sql` — Performance | Reprovações por etapa, taxa de avanço, empresas com mais aplicações |
-| `Scripts/consultas.sql` — Estratégias | Estratégias utilizadas × resultado obtido |
-| `Scripts/consultas.sql` — Mercado | Hard skills mais pedidas, empresas por setor |
-| `Scripts/consultas.sql` — Views | 4 views analíticas para consultas recorrentes |
+| `scripts/consultas.sql` — Visão Geral | Total de aplicações, empresas, vagas e status |
+| `scripts/consultas.sql` — Performance | Reprovações por etapa, taxa de avanço, empresas com mais aplicações |
+| `scripts/consultas.sql` — Estratégias | Estratégias utilizadas × resultado obtido |
+| `scripts/consultas.sql` — Mercado | Hard skills mais pedidas, empresas por setor |
+| `scripts/consultas.sql` — Views | 4 views analíticas para consultas recorrentes |
 
 ---
 
