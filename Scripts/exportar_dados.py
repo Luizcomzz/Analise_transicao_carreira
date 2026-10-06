@@ -1,60 +1,67 @@
-import pandas as pd
-import sqlite3 as sql
 import os
+import sqlite3
+import pandas as pd
 
 
-def exportar_tabelas(conn):
-
-    os.makedirs("data", exist_ok=True) # Caso não tenha a pasta com esse nome o programa cria 
-
-    tabelas = [
-        'empresas',
-        'vagas',
-        'aplicacoes'
-    ]
-
-    for tabela in tabelas: # Selecionar cada tabela para consulta e exportação 
-
-        consulta = f"""  
-        SELECT *
-        FROM {tabela}
-        """
-
-        df = pd.read_sql_query(
-            consulta,
-            conn
-        )
-
-        caminho_saida = f"data/{tabela}.csv" # Define o local onde será armazenada essas informações
-
-        df.to_csv(
-            caminho_saida,
-            index=False,
-            encoding='utf-8-sig' #não ter problemas com ç ã e acentos do Brasil
-        )
-
-        print(f"{tabela}.csv exportado com sucesso!")
+# ================================================================
+# Constantes
+# ================================================================
+DB_PATH    = "database/carreira.db"
+OUTPUT_DIR = "data"
+TABELAS    = ["empresas", "vagas", "aplicacoes"]
 
 
-def main():
+# ================================================================
+# EXPORTAÇÃO
+# ================================================================
 
-    conn = None
+def exportar_tabelas(caminho_banco: str, diretorio_saida: str) -> None:
+    """
+    Exporta todas as tabelas do banco SQLite para arquivos CSV individuais.
+    Usa context manager para garantir fechamento seguro da conexão.
 
-    try: # Caso não de pra fazer isso ele passa para a proxima função
-        conn = sql.connect(
-            "database/carreira.db"
-        )
+    Parâmetros:
+        caminho_banco (str): Caminho para o arquivo .db do SQLite.
+        diretorio_saida (str): Pasta onde os CSVs serão salvos.
+    """
+    os.makedirs(diretorio_saida, exist_ok=True)
 
-        exportar_tabelas(conn)
+    with sqlite3.connect(caminho_banco) as conn:
+        for tabela in TABELAS:
+            df = pd.read_sql_query(f"SELECT * FROM {tabela}", conn)
 
-        print("\nExportação finalizada!")
+            caminho_saida = os.path.join(diretorio_saida, f"{tabela}.csv")
 
-    except Exception as erro: # Deixa evidente qual o erro esta acontecendo auxiliando o ajuste
-        print(f"Erro encontrado: {erro}")
+            df.to_csv(
+                caminho_saida,
+                index=False,
+                encoding="utf-8-sig"   # evita problemas com acentos no Excel/Power BI
+            )
 
-    finally: # Caso tudo der errado para que seu sistema nao trave, fechar o banco de dados e finalizar
-        if conn:
-            conn.close()
+            print(f"  [OK] {tabela}.csv exportado ({len(df)} registros)")
+
+
+# ================================================================
+# MAIN
+# ================================================================
+
+def main() -> None:
+    """Orquestra a exportação do banco de dados para CSV."""
+    print("Exportação iniciada.\n")
+
+    try:
+        if not os.path.exists(DB_PATH):
+            raise FileNotFoundError(f"Banco não encontrado: {DB_PATH}")
+
+        exportar_tabelas(DB_PATH, OUTPUT_DIR)
+        print(f"\nExportação finalizada! Arquivos salvos em: {OUTPUT_DIR}/")
+
+    except FileNotFoundError as e:
+        print(f"\n[ERRO] {e}")
+        print("Verifique se o banco carreira.db está na pasta database/")
+
+    except Exception as e:
+        print(f"\n[ERRO inesperado] {e}")
 
 
 if __name__ == "__main__":
